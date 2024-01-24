@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Login Application</string>
+    <string name="choose_image">Choose Image</string>
+    <string name="name_entry">Enter Name</string>
+    <string name="email_entry">Enter Email</string>
+    <string name="pass_entry">Enter Password</string>
+    <string name="pass_reEntry">Re-Enter Password</string>
+    <string name="instruct">Login/Register</string>
+    <string name="genderInstructText">Choose Gender</string>
+    <string name="maleRadioText">Male</string>
+    <string name="femaleRadioText">Female</string>
+    <string name="otherRadioText">Other</string>
+    <string name="countryInstructText">Country:</string>
+    <string name="termsandconditionsText">By agreeing, you will have committed to share the experience given by this application and share
+    your joys with others by sharing this application with others.</string>
+    <string name="agreementcheckText">I Agree</string>
+    <string name="submitbtnText">Login/Register</string>
+</resources>

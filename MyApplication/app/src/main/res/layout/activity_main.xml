@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutOrigin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/mainRelLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="40dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp">
+
+            <TextView
+                android:id="@+id/instruct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/kranky"
+                android:text="@string/instruct"
+                android:textColor="@color/white"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/profileImgLay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/instruct"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="60dp">
+
+                <ImageView
+                    android:id="@+id/profileImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/choose_image"
+                    android:minWidth="140dp"
+                    android:minHeight="140dp"
+                    android:src="@drawable/default_profile_img" />
+
+                <Button
+                    android:id="@+id/profileImageBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@+id/profileImage"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="casual"
+                    android:text="@string/choose_image"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/formLay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profileImgLay"
+                android:layout_marginTop="55dp">
+
+                <EditText
+                    android:id="@+id/nameEntry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="casual"
+                    android:hint="@string/name_entry"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/offwhite" />
+
+                <EditText
+                    android:id="@+id/emailEntry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/nameEntry"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="casual"
+                    android:hint="@string/email_entry"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/offwhite" />
+
+                <EditText
+                    android:id="@+id/passwordEntry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/emailEntry"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="casual"
+                    android:hint="@string/pass_entry"
+                    android:inputType="textPassword"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/offwhite" />
+
+                <EditText
+                    android:id="@+id/passwordreEntry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/passwordEntry"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="casual"
+                    android:hint="@string/pass_reEntry"
+                    android:inputType="textPassword"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/offwhite" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/genderChoiceLay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/formLay"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp">
+
+                <TextView
+                    android:id="@+id/genderInstruct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/kranky"
+                    android:text="@string/genderInstructText"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/genderInstruct"
+                    android:layout_marginTop="8dp">
+
+                    <RadioGroup
+                        android:id="@+id/genderChoiceRG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/maleRadio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/white"
+                            android:fontFamily="casual"
+                            android:text="@string/maleRadioText"
+                            android:textColor="@color/white"
+                            android:textSize="15sp" />
+
+                        <RadioButton
+                            android:id="@+id/femaleRadio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:buttonTint="@color/white"
+                            android:fontFamily="casual"
+                            android:text="@string/femaleRadioText"
+                            android:textColor="@color/white"
+                            android:textSize="15sp" />
+
+                        <RadioButton
+                            android:id="@+id/otherRadio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:buttonTint="@color/white"
+                            android:fontFamily="casual"
+                            android:text="@string/otherRadioText"
+                            android:textColor="@color/white"
+                            android:textSize="15sp" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/countryEntry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/genderChoiceLay"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/kranky"
+                    android:text="@string/countryInstructText"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/countryChoiceBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="25dp"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/termsandConditionsLay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/countryEntry"
+                android:layout_marginTop="35dp">
+
+                <TextView
+                    android:id="@+id/termsandconditionsInstruct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="casual"
+                    android:text="@string/termsandconditionsText"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <CheckBox
+                    android:id="@+id/agreementBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/termsandconditionsInstruct"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="16dp"
+                    android:buttonTint="@color/white"
+                    android:fontFamily="casual"
+                    android:text="@string/agreementcheckText"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/submitBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/termsandConditionsLay"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="casual"
+                android:text="@string/submitbtnText"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

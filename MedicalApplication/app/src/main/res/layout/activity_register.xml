@@ -1,9 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".RegisterActivity"
+    android:padding="50dp"
+    android:background="@color/white"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/formBg"
+        android:id="@+id/inputFormLay"
+        app:cardCornerRadius="8dp"
+        android:layout_centerVertical="true"
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="20dp"
+            android:id="@+id/formRelLay"
+            android:background="@color/formBg"
+            >
+            <TextView
+                android:id="@+id/appName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="15dp"
+                app:drawableTopCompat="@drawable/app_logo"
+                />
+        <TextView
+            android:id="@+id/registerInstruct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/appName"
+            android:layout_marginBottom="50dp"
+            android:text="@string/registerInstructText"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/registerInstruct"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/form">
+
+            <EditText
+                android:id="@+id/registernameEntry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:inputType="text"
+                android:drawableStart="@drawable/username_icon"
+                android:drawablePadding="15dp"
+                android:hint="@string/nameHint"
+                android:paddingStart="10dp"
+                />
+
+            <EditText
+                android:id="@+id/registeremailEntry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:drawableStart="@drawable/email_icon"
+                android:drawablePadding="15dp"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/registernameEntry"
+                android:inputType="textEmailAddress"
+                android:hint="@string/emailHint"
+                android:paddingStart="10dp"
+                />
+
+            <EditText
+                android:id="@+id/registerpassEntry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:drawableStart="@drawable/password_icon"
+                android:drawablePadding="15dp"
+                android:inputType="textPassword"
+                android:hint="@string/passHint"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/registeremailEntry"
+                android:paddingStart="10dp"
+                />
+
+            <EditText
+                android:id="@+id/registerpassConfirmEntry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:drawableStart="@drawable/password_icon"
+                android:drawablePadding="15dp"
+                android:inputType="textPassword"
+                android:hint="@string/passconfirmHint"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/registerpassEntry"
+                android:paddingStart="10dp"
+                />
+        </RelativeLayout>
+        <Button
+            android:id="@+id/registerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registerBtnText"
+            android:layout_below="@+id/form"
+            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true"
+            android:textSize="18sp"
+            android:minWidth="130dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/btnBG"/>
+
+        <TextView
+            android:id="@+id/loginHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loginHintText"
+            android:layout_below="@+id/registerBtn"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:textSize="16sp"
+            android:textColor="@color/white"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
+

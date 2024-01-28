@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#00BCD4</color>
+    <color name="red">#F44336</color>
+    <color name="formBg">#78D17C</color>
+    <color name="cardBG">#07870A</color>
+    <color name="btnBG">#07870A</color>
+    <color name="titleColor">#033C05</color>
+    <color name="transparent">#00033C05</color>
+    <color name="dateHighlightColor">#17C51D</color>
+    <color name="emptyListColor">#838383</color>
+</resources>

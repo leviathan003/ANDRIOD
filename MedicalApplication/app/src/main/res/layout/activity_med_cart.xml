@@ -1,9 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MedCartActivity">
+    tools:context=".MedCartActivity"
+    android:background="@color/white"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/app_logo"
+        android:id="@+id/title"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cartInstructText"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/cartInstruct"
+        android:layout_below="@+id/title"
+        android:textStyle="bold"
+        android:textColor="@color/btnBG"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cartInstruct"
+        android:layout_marginTop="20dp"
+        android:id="@+id/invoiceLay"
+        android:paddingStart="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/invoiceInstruct"
+            android:text="@string/invoiceTextInstruct"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginStart="15dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/invoiceNumber"
+            android:textColor="@color/black"
+            android:text="@string/defInstructText"
+            android:textSize="18sp"
+            android:layout_marginStart="8dp"
+            />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:layout_below="@id/invoiceLay"
+        android:layout_marginTop="10dp"
+        android:id="@+id/tableView"
+        >
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/billTable"
+            >
+            <TableRow android:padding="10dp" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:text="@string/medname"
+                    android:textAlignment="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:text="@string/medprice"
+                    android:textAlignment="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/orderqty"
+                    android:textAlignment="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:text="@string/total"
+                    android:textAlignment="center"/>
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/totalLay"
+        android:layout_below="@+id/tableView"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="@string/totalInstructText"
+            android:textSize="20sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/black"
+            android:text="0"
+            android:id="@+id/totDisp"
+            android:textSize="25sp" />
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:backgroundTint="@color/btnBG"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:text="@string/checkoutBtnText"
+        android:textSize="18sp"
+        android:id="@+id/checkoutBtn"
+        android:layout_below="@+id/totalLay"
+        />
+</RelativeLayout>

@@ -1,9 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:padding="50dp"
+    android:background="@color/white"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:cardCornerRadius="8dp"
+        android:layout_centerVertical="true">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="20dp"
+            android:id="@+id/formRelLay"
+            android:background="@color/formBg"
+            >
+            <TextView
+                android:id="@+id/appName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                app:drawableTopCompat="@drawable/app_logo" />
+            <TextView
+                android:id="@+id/loginInstruct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="65dp"
+                android:layout_below="@+id/appName"
+                android:text="@string/loginInstructText"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/loginInstruct"
+                android:id="@+id/inputFormLay"
+                android:layout_centerHorizontal="true">
+
+                <EditText
+                    android:id="@+id/loginnameEntry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textColor="@color/white"
+                    android:hint="@string/nameHint"
+                    android:textColorHint="@color/white"
+                    android:paddingStart="10dp"
+                    android:drawableStart="@drawable/username_icon"
+                    android:drawablePadding="15dp"
+                    />
+
+                <EditText
+                    android:id="@+id/loginpassEntry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:inputType="textPassword"
+                    android:hint="@string/passHint"
+                    android:drawableStart="@drawable/password_icon"
+                    android:drawablePadding="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_below="@+id/loginnameEntry"
+                    android:paddingStart="10dp"
+                    />
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/loginBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loginBtnText"
+                android:layout_below="@+id/inputFormLay"
+                android:layout_marginTop="60dp"
+                android:layout_centerHorizontal="true"
+                android:textSize="18sp"
+                android:minWidth="130dp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/btnBG"/>
+
+            <TextView
+                android:id="@+id/registerHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/registerHintText"
+                android:layout_below="@+id/loginBtn"
+                android:layout_marginTop="40dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

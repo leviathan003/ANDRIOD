@@ -1,9 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SetAppointmentActivity">
+    tools:context=".SetAppointmentActivity"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp"
+    android:background="@color/white">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        app:drawableTopCompat="@drawable/app_logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dateInstructText"
+        android:layout_below="@+id/title"
+        android:textSize="20sp"
+        android:id="@+id/dateInstruct"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <CalendarView
+        android:id="@+id/dateEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        android:theme="@style/CalenderViewCustom"
+        android:dateTextAppearance="@style/CalenderViewDateCustomText"
+        android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/dateInstruct"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/timeEntryInstructText"
+        android:textSize="20sp"
+        android:id="@+id/timeInstruct"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/dateEntry"
+        />
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/timeInstruct"
+        android:layout_marginTop="10dp"
+        android:id="@+id/timeslotRG"
+        android:layout_centerHorizontal="true">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mornApptTime"
+            android:textColor="@color/black"
+            style="@style/RadioButtonCustom"
+            android:layout_marginEnd="20dp"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            style="@style/RadioButtonCustom"
+            android:buttonTint="@color/btnBG"
+            android:text="@string/evenApptTime"
+            />
+    </RadioGroup>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/timeslotRG"
+        android:layout_marginTop="20dp"
+        android:paddingEnd="30dp"
+        android:paddingStart="30dp"
+        android:id="@+id/docAvailabilityInstruct"
+        android:textAlignment="center"
+        android:text="@string/doctorAvailabilityText"
+        android:textSize="14sp"
+        android:textColor="@color/red"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/confirmBtn"
+        android:layout_below="@+id/docAvailabilityInstruct"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/confirmBtnText"
+        android:backgroundTint="@color/btnBG"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>

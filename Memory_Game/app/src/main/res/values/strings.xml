@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Memory</string>
+    <string name="movesDisp">"Moves: 0"</string>
+    <string name="matchedDisp">"Pairs Found: 0/0"</string>
+    <string name="gameName">Name</string>
+    <string name="Refresh">Refresh</string>
+    <string name="Menu">menu</string>
+    <string name="newGame">New Game</string>
+    <string name="customGame">Create Custom Game</string>
+    <string name="saveBtnText">Save</string>
+    <string name="gameNameHint">Game Name(example: \'bitmoji_bash\')</string>
+    <string name="playGame">Play Custom Game</string>
+</resources>

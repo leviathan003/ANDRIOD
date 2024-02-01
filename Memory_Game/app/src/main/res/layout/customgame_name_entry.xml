@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/customGNameEntry"
+        android:textColor="@color/white"
+        android:foregroundTint="@color/gray"
+        android:maxLines="1"
+        android:hint="@string/gameNameHint"
+        android:textColorHint="@color/gray"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:digits="1234567890abcdefghijklmnopqrstuwvxyz_-"
+        android:importantForAutofill="no"
+        />
 
 </LinearLayout>

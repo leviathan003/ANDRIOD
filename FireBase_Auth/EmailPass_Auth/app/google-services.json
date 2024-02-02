@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "279539705176",
+    "project_id": "emailpass-auth-f5387",
+    "storage_bucket": "emailpass-auth-f5387.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279539705176:android:81c457e9507953ad39712d",
+        "android_client_info": {
+          "package_name": "com.example.emailpass_auth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCclOZyC5uzxg_gAIBIE_LJBhdaZUPGDP0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

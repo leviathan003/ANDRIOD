@@ -2,11 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity"
-    android:background="@color/white"
-    >
+    tools:context=".SignInActivity"
+    android:background="@color/white">
 
     <TextView
         android:layout_width="0dp"
@@ -14,7 +14,7 @@
         app:layout_constraintBottom_toTopOf="@+id/formLay"
         app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
         app:layout_constraintStart_toEndOf="@+id/guidelineStart"
-        android:text="@string/signup"
+        android:text="@string/signin"
         android:textAlignment="center"
         android:textSize="35sp"
         />
@@ -32,24 +32,11 @@
         app:layout_constraintTop_toBottomOf="@+id/guidelineTop">
 
         <EditText
-            android:id="@+id/nameEntry"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/emailEntry"
-            android:layout_marginBottom="20dp"
-            android:hint="@string/nameprompt"
-            android:inputType="text"
-            android:importantForAutofill="no"
-            android:textColor="@color/black"
-            android:textColorHint="@color/hintColor" />
-
-        <EditText
             android:id="@+id/emailEntry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/passwordEntry"
-            android:layout_marginBottom="20dp"
-            android:digits="1234567890-_abcdefghijklmnopqrstuvwxyz"
+            android:layout_marginBottom="40dp"
             android:hint="@string/emailprompt"
             android:inputType="textEmailAddress"
             android:textColor="@color/black"
@@ -59,20 +46,8 @@
             android:id="@+id/passwordEntry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/cnfpasswordEntry"
-            android:layout_marginBottom="20dp"
             android:digits="1234567890-_abcdefghijklmnopqrstuvwxyz"
             android:hint="@string/passwordprompt"
-            android:inputType="textPassword"
-            android:textColor="@color/black"
-            android:textColorHint="@color/hintColor" />
-
-        <EditText
-            android:id="@+id/cnfpasswordEntry"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:digits="1234567890-_abcdefghijklmnopqrstuvwxyz"
-            android:hint="@string/cnfpasswordprompt"
             android:inputType="textPassword"
             android:textColor="@color/black"
             android:textColorHint="@color/hintColor" />
@@ -103,8 +78,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/register"
-            android:layout_weight="1"
             android:id="@+id/registerBtn"
+            android:layout_weight="1"
             />
 
     </LinearLayout>
@@ -136,5 +111,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.92" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

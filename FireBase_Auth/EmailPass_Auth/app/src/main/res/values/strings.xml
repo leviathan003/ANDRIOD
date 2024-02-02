@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">EmailPass_Auth</string>
+    <string name="emailprompt">Enter Email</string>
+    <string name="passwordprompt">Enter Password</string>
+    <string name="signin">Sign In</string>
+    <string name="register">Register</string>
+    <string name="signup">Sign Up</string>
+    <string name="cnfpasswordprompt">Confirm Password</string>
+    <string name="nameprompt">Enter Username</string>
+</resources>

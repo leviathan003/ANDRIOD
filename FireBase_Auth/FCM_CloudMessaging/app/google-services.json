@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "739999812414",
+    "project_id": "fcm-cloudmessaging-44bb8",
+    "storage_bucket": "fcm-cloudmessaging-44bb8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739999812414:android:6d9f4d1f78cb7683c0fa6f",
+        "android_client_info": {
+          "package_name": "com.example.fcm_cloudmessaging"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQI9BtEeKWdD51-iODESHNcDTOJzdArW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

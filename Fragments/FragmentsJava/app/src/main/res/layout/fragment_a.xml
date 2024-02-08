@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CallsFragment"
-    android:background="#2160CC"
+    tools:context=".AFragment"
+    android:background="@color/black"
     >
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Calls" />
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>

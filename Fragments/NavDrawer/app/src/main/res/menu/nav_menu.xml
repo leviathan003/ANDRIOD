@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:id="@+id/optNotes"
+        android:title="Notes"
+    />
+
+    <item android:id="@+id/optHome"
+        android:title="Home"
+        />
+
+    <item android:id="@+id/optSettings"
+        android:title="Settings"
+        />
+
 </menu>

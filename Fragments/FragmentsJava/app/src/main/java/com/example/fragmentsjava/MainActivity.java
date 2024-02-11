@@ -50,7 +50,9 @@ public class MainActivity extends AppCompatActivity {
             ft.add(R.id.fragmentContainer, fr);
         }else{
             ft.replace(R.id.fragmentContainer, fr);
+            ft.addToBackStack(null);
         }
+
         ft.commit();
     }
 

@@ -12,8 +12,7 @@ open class BaseActivity: AppCompatActivity() {
 
         if (currentUserUid != null) {
             val userRef = FirebaseDatabase.getInstance().getReference("users").child(currentUserUid)
-            userRef.child("isOnline").setValue(false)
+            userRef.child("online").setValue(false)
         }
     }
-
 }

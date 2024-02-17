@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ChattingApplication</string>
+    <string name="registerPrompt"><font color='#0000000'>Not an user?</font> <font color='#078509'>Register</font></string>
+    <string name="loginPrompt"><font color='#000000'>Existing user? </font> <font color='#078509'>Login</font></string>
 </resources>

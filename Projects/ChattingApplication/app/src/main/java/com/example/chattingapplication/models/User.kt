@@ -1,3 +1,5 @@
 package com.example.chattingapplication.models
 
-data class user()
+import java.io.Serializable
+
+data class User(val uid:String, val name:String,val isOnline:Boolean):Serializable

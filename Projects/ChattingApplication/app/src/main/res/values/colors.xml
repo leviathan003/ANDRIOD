@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="textPrimary">#078509</color>
+    <color name="actionBarBG">#078509</color>
+    <color name="editTextPrimary">#ACACAC</color>
+    <color name="buttonBG">#078509</color>
 </resources>

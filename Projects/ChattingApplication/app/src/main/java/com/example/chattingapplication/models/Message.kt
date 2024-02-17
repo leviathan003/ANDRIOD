@@ -1,4 +1,5 @@
 package com.example.chattingapplication.models
 
-class Message {
+data class Message(val senderUID:String,val recieverUID:String,val message:String, val timestamp: Long = 0){
+    constructor() : this("", "", "")
 }

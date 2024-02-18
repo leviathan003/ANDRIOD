@@ -3,9 +3,9 @@ package com.example.chattingapplication.chat
 import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.chattingapplication.BaseActivity
 import com.example.chattingapplication.R
 import com.example.chattingapplication.adapters.MessagesRVAdapter
 import com.example.chattingapplication.databinding.ActivityChatBinding
@@ -18,7 +18,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class ChatActivity : BaseActivity() {
+class ChatActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityChatBinding
     private lateinit var auth:FirebaseAuth

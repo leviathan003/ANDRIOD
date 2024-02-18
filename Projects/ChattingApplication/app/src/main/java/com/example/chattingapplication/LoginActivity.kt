@@ -64,6 +64,7 @@ class LoginActivity : AppCompatActivity() {
 
         binding.goToRegister.setOnClickListener {
             startActivity(Intent(this,RegisterActivity::class.java))
+            finish()
         }
     }
 

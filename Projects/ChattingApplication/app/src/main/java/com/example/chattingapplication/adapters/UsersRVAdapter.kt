@@ -8,14 +8,11 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chattingapplication.R
-import com.example.chattingapplication.models.Message
 import com.example.chattingapplication.models.User
 import com.google.firebase.auth.FirebaseAuth
 
 class UsersRVAdapter(private val context: Context,private var users:MutableList<User>,
                     private val onClickedListener: onClickListener):RecyclerView.Adapter<UsersRVAdapter.ViewHolder>() {
-
-    private var auth = FirebaseAuth.getInstance()
 
     interface onClickListener{
         fun onClickedItem(item:User)

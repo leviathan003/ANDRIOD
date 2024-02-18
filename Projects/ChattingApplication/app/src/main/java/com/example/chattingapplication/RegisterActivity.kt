@@ -1,4 +1,4 @@
-package com.example.chattingapplication.login
+package com.example.chattingapplication
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,6 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.example.chattingapplication.R
 import com.example.chattingapplication.databinding.ActivityRegisterBinding
 import com.example.chattingapplication.models.User
 import com.google.firebase.auth.FirebaseAuth
@@ -52,7 +51,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         binding.goToLogin.setOnClickListener {
-            startActivity(Intent(this,LoginActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
     }

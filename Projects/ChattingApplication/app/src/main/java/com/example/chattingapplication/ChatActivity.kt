@@ -1,4 +1,4 @@
-package com.example.chattingapplication.chat
+package com.example.chattingapplication
 
 import android.os.Bundle
 import android.util.Log
@@ -6,7 +6,6 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.chattingapplication.R
 import com.example.chattingapplication.adapters.MessagesRVAdapter
 import com.example.chattingapplication.databinding.ActivityChatBinding
 import com.example.chattingapplication.models.Message
@@ -50,14 +49,20 @@ class ChatActivity : AppCompatActivity() {
 
         val currentUser = auth.currentUser
 
+        val senderTag = currentUser!!.uid+userData.uid
+        val recieverTag = userData.uid+ currentUser.uid
+
         binding.sendBtn.setOnClickListener{
             val message = binding.messageEntry.text.toString()
             if(message.isNotBlank()){
                 messageList.clear()
                 if (currentUser != null) {
                     val currentTime = System.currentTimeMillis()
-                    val dataMessage = Message(currentUser.uid, userData.uid, message, currentTime)
-                    db.child("messages").push().setValue(dataMessage)
+                    val dataMessage = Message(currentUser.uid, userData.uid,"",message, currentTime)
+                    db.child("chats").child(senderTag).child("messages").push().setValue(dataMessage)
+                        .addOnSuccessListener {
+                            db.child("chats").child(recieverTag).child("messages").push().setValue(dataMessage)
+                    }
                 }
                 binding.messageEntry.text.clear()
             }
@@ -87,7 +92,7 @@ class ChatActivity : AppCompatActivity() {
             }
         }
 
-        db.child("messages").addValueEventListener(valueEventListener)
+        db.child("chats").child(senderTag).child("messages").addValueEventListener(valueEventListener)
 
         binding.messageRV.adapter = adapter
         binding.messageRV.layoutManager = LinearLayoutManager(this)

@@ -1,4 +1,6 @@
 package com.example.demo
 
-class Albums {
+class Albums:ArrayList<AlbumItem>() {
+
+
 }

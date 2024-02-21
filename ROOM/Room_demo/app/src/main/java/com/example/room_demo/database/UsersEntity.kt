@@ -1,3 +1,12 @@
 package com.example.room_demo.database
 
-data class UsersEntity()
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "users")
+data class UsersEntity(
+    @PrimaryKey(autoGenerate = true)
+    var id:Int?=null,
+    var name:String,
+    var email:String
+)

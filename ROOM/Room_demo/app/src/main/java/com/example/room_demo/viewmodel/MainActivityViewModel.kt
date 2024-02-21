@@ -1,7 +1,8 @@
-package com.example.room_demo
+package com.example.room_demo.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.room_demo.database.UsersEntity
 import com.example.room_demo.repository.RoomRepo
@@ -17,11 +18,11 @@ class MainActivityViewModel(app:Application, val userRepo:RoomRepo):AndroidViewM
         userRepo.delete(user)
     }
 
-    fun getUsers() = viewModelScope.launch {
-        userRepo.select()
+    fun getUsers(): LiveData<List<UsersEntity>> {
+        return userRepo.select()
     }
 
-    fun updateUsers() = viewModelScope.launch {
-        userRepo.update()
+    fun updateUsers(user: UsersEntity) = viewModelScope.launch {
+        userRepo.update(user)
     }
 }

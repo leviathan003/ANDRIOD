@@ -20,10 +20,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         GlobalScope.launch(Dispatchers.Main) {
-            FlowsDemo.producer().flowOn(Dispatchers.IO)
-            .collect{
-                println("${it.toString()},${Thread.currentThread().name}")
+            val res = FlowsDemo.producer()
+            res.collect{
+                println("1 -$it")
             }
+        }
+
+        GlobalScope.launch(Dispatchers.Main) {
+            val res = FlowsDemo.producer()
+            delay(3000)
+            res.collect{
+                    println("2 -$it")
+                }
         }
 
     }

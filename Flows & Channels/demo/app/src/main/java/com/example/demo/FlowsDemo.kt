@@ -1,13 +1,17 @@
 package com.example.demo
 
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.launch
 
 class FlowsDemo {
 
@@ -84,19 +88,31 @@ class FlowsDemo {
 //    }
 
     companion object{
-        fun producer()= flow<Int>{
+        fun producer(): Flow<Int> {
+//            val list = listOf(1,2,3,4,5,6,7,8,9,10)
+//            list.forEach {
+//                delay(1000)
+//                println(Thread.currentThread().name.toString())
+//                emit(it)
+//                //throw Exception("Error in Emitter")
+//            }
+
+//          This is a hot flow unlike previous ones which are cold flows
+            val mutableSharedFlow = MutableSharedFlow<Int>(1)
+            //replay is a type of buffer for consumers that start late than others and the integer argument is the size of the buffer
             val list = listOf(1,2,3,4,5,6,7,8,9,10)
-            list.forEach {
-                delay(1000)
-                println(Thread.currentThread().name.toString())
-                emit(it)
-                throw Exception("Error in Emitter")
+            GlobalScope.launch {
+                list.forEach {
+                    mutableSharedFlow.emit(it)//this is a suspend function so use coroutines
+                    delay(1000)
+                }
             }
-        }.catch {
-            println(it.message)
+            return mutableSharedFlow
+        }//.catch {
+           // println(it.message)
             // additional values can also be emitted and it works upstream
-            emit(-1)
-        }
+            //emit(-1)
+        //}
     }
 
 }

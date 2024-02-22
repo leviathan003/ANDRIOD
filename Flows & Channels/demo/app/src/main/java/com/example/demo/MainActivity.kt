@@ -21,18 +21,19 @@ class MainActivity : AppCompatActivity() {
 
         GlobalScope.launch(Dispatchers.Main) {
             val res = FlowsDemo.producer()
+            delay(7000)
             res.collect{
                 println("1 -$it")
             }
         }
 
-        GlobalScope.launch(Dispatchers.Main) {
-            val res = FlowsDemo.producer()
-            delay(3000)
-            res.collect{
-                    println("2 -$it")
-                }
-        }
+//        GlobalScope.launch(Dispatchers.Main) {
+//            val res = FlowsDemo.producer()
+//            delay(3000)
+//            res.collect{
+//                    println("2 -$it")
+//                }
+//        }
 
     }
 }

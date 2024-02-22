@@ -5,6 +5,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -98,21 +99,31 @@ class FlowsDemo {
 //            }
 
 //          This is a hot flow unlike previous ones which are cold flows
-            val mutableSharedFlow = MutableSharedFlow<Int>(1)
-            //replay is a type of buffer for consumers that start late than others and the integer argument is the size of the buffer
-            val list = listOf(1,2,3,4,5,6,7,8,9,10)
-            GlobalScope.launch {
-                list.forEach {
-                    mutableSharedFlow.emit(it)//this is a suspend function so use coroutines
-                    delay(1000)
-                }
-            }
-            return mutableSharedFlow
-        }//.catch {
+//            val mutableSharedFlow = MutableSharedFlow<Int>(1)
+//            //replay is a type of buffer for consumers that start late than others and the integer argument is the size of the buffer
+//            val list = listOf(1,2,3,4,5,6,7,8,9,10)
+//            GlobalScope.launch {
+//                list.forEach {
+//                    mutableSharedFlow.emit(it)//this is a suspend function so use coroutines
+//                    delay(1000)
+//                }
+//            }
+//            return mutableSharedFlow
+//        }//.catch {
            // println(it.message)
             // additional values can also be emitted and it works upstream
             //emit(-1)
         //}
+
+            val mutableStateFlow = MutableStateFlow(10)
+            GlobalScope.launch {
+                delay(2000)
+                mutableStateFlow.emit(20)
+                delay(2000)
+                mutableStateFlow.emit(30)
+            }
+            return mutableStateFlow
+        }
     }
 
 }

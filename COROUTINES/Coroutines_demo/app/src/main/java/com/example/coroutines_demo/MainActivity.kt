@@ -2,6 +2,7 @@ package com.example.coroutines_demo
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.coroutines_demo.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -99,6 +100,22 @@ class MainActivity : AppCompatActivity() {
 //                println("World")
 //            }
 //            println("Hello")
+//        }
+
+//        Built-In Android Scopes for Coroutines
+//        View model Scope of Coroutines
+//        Infinite loop running when a view-model class is instantiated and has its scope set as the view-model itself
+//        viewModelScope.launch{
+//            while(true){
+//                delay(500)
+//                println("Hello")
+//            }
+//        }
+
+//        Lifecycle Scope of Coroutines for activity
+//        lifecycleScope.launch {
+//            delay(2000)
+//            //work here
 //        }
 
     }

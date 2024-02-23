@@ -1,4 +1,4 @@
-package com.example.music_player
+package com.example.music_player.datamodels
 
 data class Artist(
     val id: Int,

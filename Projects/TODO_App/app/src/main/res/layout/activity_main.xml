@@ -22,10 +22,36 @@
             android:textStyle="bold"
             android:layout_marginTop="20dp"
             android:textColor="#0A5E01"
+            android:layout_marginBottom="10dp"
             />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/SearchInputLayout"
+            android:id="@+id/edSearchL"
+            android:layout_marginHorizontal="10dp"
+            app:errorEnabled="false"
+            app:startIconDrawable="@drawable/ic_search"
+            app:hintEnabled="false"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="@color/black"
+                android:paddingStart="50dp"
+                android:paddingBottom="20dp"
+                android:inputType="text"
+                android:id="@+id/edTaskTitle"
+                android:hint="Enter Search title"
+                android:imeOptions="actionSearch"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/taskRV"
             android:clipToPadding="false"
             android:orientation="vertical"
             android:paddingBottom="100dp"

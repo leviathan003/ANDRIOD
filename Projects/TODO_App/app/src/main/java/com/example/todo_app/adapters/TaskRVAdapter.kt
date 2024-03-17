@@ -15,6 +15,7 @@ import java.util.Locale
 
 class TaskRVAdapter(private val deleteUpdateCallback:(action:String,position:Int,task:Task)->Unit)
     :ListAdapter<Task,TaskRVAdapter.ViewHolder>(DiffCallBack()) {
+
     class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
         var titleText:TextView = itemView.findViewById(R.id.titleTxt)
         var descText:TextView = itemView.findViewById(R.id.descTxt)
@@ -23,7 +24,7 @@ class TaskRVAdapter(private val deleteUpdateCallback:(action:String,position:Int
         val updateImg:ImageView = itemView.findViewById(R.id.editImg)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskRVAdapter.ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_task_layout,parent,false))
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_task_linear_layout,parent,false))
     }
 
     override fun onBindViewHolder(holder: TaskRVAdapter.ViewHolder, position: Int) {

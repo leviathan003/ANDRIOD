@@ -10,11 +10,6 @@
     app:cardBackgroundColor="@color/white"
     app:cardElevation="10dp"
     >
-    
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,17 +45,18 @@
                 android:layout_marginVertical="4dp"
                 android:id="@+id/dateTxt"
                 />
-        </LinearLayout>
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/editDelL"
-            android:orientation="vertical"
+            android:gravity="center"
             android:layout_alignParentEnd="true">
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:id="@+id/editImg"
+                android:layout_weight="1"
                 android:layout_marginVertical="4dp"
                 android:src="@drawable/ic_edit"
                 />
@@ -68,9 +64,10 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:id="@+id/delImg"
+                android:layout_weight="1"
                 android:layout_marginVertical="4dp"
                 android:src="@drawable/ic_del"
                 />
         </LinearLayout>
-    </RelativeLayout>
+        </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

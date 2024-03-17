@@ -5,14 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
-import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.ImageView
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.util.query
-import com.example.todo_app.adapters.TaskRVAdapter
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.todo_app.adapters.TaskRVViewBindingAdapter
 import com.example.todo_app.databinding.ActivityMainBinding
 import com.example.todo_app.models.Task
 import com.example.todo_app.utils.Status
@@ -22,7 +22,6 @@ import com.example.todo_app.viewmodels.TaskViewModel
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.util.Date
 import java.util.UUID
@@ -47,6 +46,10 @@ class MainActivity : AppCompatActivity() {
 
     private val taskViewModel:TaskViewModel by lazy {
         ViewModelProvider(this)[TaskViewModel::class.java]
+    }
+
+    private val isListMutableLiveData = MutableLiveData<Boolean>().apply {
+        postValue(true)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -98,7 +101,20 @@ class MainActivity : AppCompatActivity() {
             addTaskDialog.show()
         }
 
-        val taskRecyclerViewAdapter = TaskRVAdapter(){action,position, task ->
+        isListMutableLiveData.observe(this){
+            if(it){
+                mainBinding.taskRV.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+                mainBinding.layoutChangeBtn.setImageResource(R.drawable.ic_view_grid)
+            }else{
+                mainBinding.taskRV.layoutManager = StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL)
+                mainBinding.layoutChangeBtn.setImageResource(R.drawable.ic_view_list)
+            }
+        }
+        mainBinding.layoutChangeBtn.setOnClickListener {
+            isListMutableLiveData.postValue(!isListMutableLiveData.value!!)
+        }
+
+        val taskRecyclerViewAdapter = TaskRVViewBindingAdapter(isListMutableLiveData){ action, _, task ->
                 if(action=="delete") {
                     taskViewModel.deleteTasks(task).observe(this) {
                         when (it.status) {
@@ -159,7 +175,7 @@ class MainActivity : AppCompatActivity() {
             callGetTaskList(taskRecyclerViewAdapter)
         }
 
-    private fun callSearch(taskRecyclerViewAdapter:TaskRVAdapter) {
+    private fun callSearch(taskRecyclerViewAdapter:TaskRVViewBindingAdapter) {
         mainBinding.edTaskTitle.addTextChangedListener(object :TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(query: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -176,7 +192,7 @@ class MainActivity : AppCompatActivity() {
                                 }
                                 Status.SUCCESS-> {
                                     it.data?.collect{taskList->
-                                        taskRecyclerViewAdapter.submitList(taskList)
+                                        taskRecyclerViewAdapter.addAllTasks(taskList)
                                     }
                                 }
                             }
@@ -189,7 +205,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun callGetTaskList(taskRecyclerViewAdapter:TaskRVAdapter){
+    private fun callGetTaskList(taskRecyclerViewAdapter:TaskRVViewBindingAdapter){
         CoroutineScope(Dispatchers.Main).launch {
             taskViewModel.getTasks().collect{
                 when(it.status){
@@ -201,7 +217,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     Status.SUCCESS-> {
                         it.data?.collect{taskList->
-                            taskRecyclerViewAdapter.submitList(taskList)
+                            taskRecyclerViewAdapter.addAllTasks(taskList)
                         }
                     }
                 }
